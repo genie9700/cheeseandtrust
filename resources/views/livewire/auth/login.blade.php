@@ -40,7 +40,18 @@ new #[Layout('components.layouts.auth')] class extends Component {
         RateLimiter::clear($this->throttleKey());
         Session::regenerate();
 
-        $this->redirectIntended(default: route('dashboard', absolute: false));
+       $user = Auth::user();
+
+        // Determine the redirect path based on the user's role
+        $redirectPath = $user->is_admin === 1
+            ? '/admin/dashboard'
+            : '/dashboard';
+
+        // Redirect the user to the correct dashboard
+        $this->redirect(
+            url: $redirectPath
+            // navigate: true
+        );     
     }
 
     /**

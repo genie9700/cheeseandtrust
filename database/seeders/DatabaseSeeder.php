@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'fname' => 'Admin',
+            'lname' => 'User',
             'email' => 'admin@chaseandtrust.com',
             'is_admin'=> 1, 
         ]);

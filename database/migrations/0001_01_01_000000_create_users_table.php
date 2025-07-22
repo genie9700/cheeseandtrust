@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('email')->unique();
-            $table->string('phone');
-            $table->string('country');
+            $table->string('phone')->nullable();
+            $table->string('country')->nullable();
             $table->integer('is_admin')->default(0);
             $table->string('profile_pic')->nullable();
             $table->timestamp('email_verified_at')->nullable();

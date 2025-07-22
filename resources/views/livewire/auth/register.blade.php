@@ -52,9 +52,9 @@ new #[Layout('components.layouts.auth')] class extends Component {
     <form wire:submit="register" class="flex flex-col gap-6">
 
         <div class="flex space-x-4">
-            <flux:input wire:model="fname" :label="__('First Name')" type="text" required autofocus autocomplete="name"
+            <flux:input wire:model="fname" :label="__('First Name')" type="text" required autofocus autocomplete="first name"
                 :placeholder="__('First Name')" />
-            <flux:input wire:model="lname" :label="__('Last Name')" type="text" required autocomplete="name"
+            <flux:input wire:model="lname" :label="__('Last Name')" type="text" required autocomplete="last name"
                 :placeholder="__('Last Name')" />
         </div>
 
