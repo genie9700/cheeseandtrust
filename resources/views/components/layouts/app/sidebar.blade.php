@@ -118,12 +118,12 @@
                             </div>
                             <ul class="py-1" role="none">
                                 <li>
-                                    <a href="{{ route('dashboard') }}" wire:navigate
+                                    <a href="{{ route('dashboard') }}" 
                                         class="block px-4 py-2 text-md font-bold text-white hover:bg-gray-800 hover:rounded-md dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                         role="menuitem">Home</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('profile') }}" wire:navigate
+                                    <a href="{{ route('profile') }}" 
                                         class="block px-4 py-2 text-md font-bold text-white hover:bg-gray-800 hover:rounded-md dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                         role="menuitem">Profile</a>
                                 </li>
@@ -158,7 +158,7 @@
         <div class="h-full px-5 pb-4 overflow-y-auto bg-[#131824] text-white dark:bg-gray-800">
             <ul class="font-bold text-md">
                 <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('dashboard') ? 'bg-blue-500  rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
-                    <a href="{{ route('dashboard') }}" wire:navigate
+                    <a href="{{ route('dashboard') }}" 
                         class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z" clip-rule="evenodd"/>
@@ -167,7 +167,7 @@
                     </a>
                 </li>
                 {{-- <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
-                    <a href="{{ route('profile') }}" wire:navigate
+                    <a href="{{ route('profile') }}" 
                         class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M7 6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-2v-4a3 3 0 0 0-3-3H7V6Z" clip-rule="evenodd"/>
@@ -178,7 +178,7 @@
                     </a>
                 </li> --}}
                 {{-- <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
-                    <a href="{{ route('profile') }}" wire:navigate
+                    <a href="{{ route('profile') }}" 
                         class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5V3m0 18v-2M7.05 7.05 5.636 5.636m12.728 12.728L16.95 16.95M5 12H3m18 0h-2M7.05 16.95l-1.414 1.414M18.364 5.636 16.95 7.05M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/>
@@ -187,7 +187,7 @@
                     </a>
                 </li> --}}
                 {{-- <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
-                    <a href="{{ route('profile') }}" wire:navigate
+                    <a href="{{ route('profile') }}" 
                         class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M13.5 2c-.178 0-.356.013-.492.022l-.074.005a1 1 0 0 0-.934.998V11a1 1 0 0 0 1 1h7.975a1 1 0 0 0 .998-.934l.005-.074A7.04 7.04 0 0 0 22 10.5 8.5 8.5 0 0 0 13.5 2Z"/>
@@ -198,7 +198,7 @@
                     </a>
                 </li> --}}
                 <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('trades') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
-                    <a href="{{ route('trades') }}" wire:navigate
+                    <a href="{{ route('trades') }}" 
                         class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15v4m6-6v6m6-4v4m6-6v6M3 11l6-5 6 5 5.5-5.5"/>
@@ -208,7 +208,7 @@
                     </a>
                 </li>
                 <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('deposit') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
-                    <a href="{{ route('deposit') }}" wire:navigate
+                    <a href="{{ route('deposit') }}" 
                         class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4.243a1 1 0 1 0-2 0V11H7.757a1 1 0 1 0 0 2H11v3.243a1 1 0 1 0 2 0V13h3.243a1 1 0 1 0 0-2H13V7.757Z" clip-rule="evenodd"/>
@@ -218,7 +218,7 @@
                     </a>
                 </li>
                 {{-- <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
-                    <a href="{{ route('profile') }}" wire:navigate
+                    <a href="{{ route('profile') }}" 
                         class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 7.205c4.418 0 8-1.165 8-2.602C20 3.165 16.418 2 12 2S4 3.165 4 4.603c0 1.437 3.582 2.602 8 2.602ZM12 22c4.963 0 8-1.686 8-2.603v-4.404c-.052.032-.112.06-.165.09a7.75 7.75 0 0 1-.745.387c-.193.088-.394.173-.6.253-.063.024-.124.05-.189.073a18.934 18.934 0 0 1-6.3.998c-2.135.027-4.26-.31-6.3-.998-.065-.024-.126-.05-.189-.073a10.143 10.143 0 0 1-.852-.373 7.75 7.75 0 0 1-.493-.267c-.053-.03-.113-.058-.165-.09v4.404C4 20.315 7.037 22 12 22Zm7.09-13.928a9.91 9.91 0 0 1-.6.253c-.063.025-.124.05-.189.074a18.935 18.935 0 0 1-6.3.998c-2.135.027-4.26-.31-6.3-.998-.065-.024-.126-.05-.189-.074a10.163 10.163 0 0 1-.852-.372 7.816 7.816 0 0 1-.493-.268c-.055-.03-.115-.058-.167-.09V12c0 .917 3.037 2.603 8 2.603s8-1.686 8-2.603V7.596c-.052.031-.112.059-.165.09a7.816 7.816 0 0 1-.745.386Z"/>
@@ -228,7 +228,7 @@
                     </a>
                 </li> --}}
                 <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('withdraw') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
-                    <a href="{{ route('withdraw') }}" wire:navigate
+                    <a href="{{ route('withdraw') }}" 
                         class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm5.757-1a1 1 0 1 0 0 2h8.486a1 1 0 1 0 0-2H7.757Z" clip-rule="evenodd"/>
@@ -238,7 +238,7 @@
                     </a>
                 </li>
                 <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('subscribe') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
-                    <a href="{{ route('subscribe') }}" wire:navigate
+                    <a href="{{ route('subscribe') }}" 
                         class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M5.005 10.19a1 1 0 0 1 1 1v.233l5.998 3.464L18 11.423v-.232a1 1 0 1 1 2 0V12a1 1 0 0 1-.5.866l-6.997 4.042a1 1 0 0 1-1 0l-6.998-4.042a1 1 0 0 1-.5-.866v-.81a1 1 0 0 1 1-1ZM5 15.15a1 1 0 0 1 1 1v.232l5.997 3.464 5.998-3.464v-.232a1 1 0 1 1 2 0v.81a1 1 0 0 1-.5.865l-6.998 4.042a1 1 0 0 1-1 0L4.5 17.824a1 1 0 0 1-.5-.866v-.81a1 1 0 0 1 1-1Z" clip-rule="evenodd"/>
@@ -249,7 +249,7 @@
                     </a>
                 </li>
                 {{-- <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('copy') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
-                    <a href="{{ route('copy') }}" wire:navigate
+                    <a href="{{ route('copy') }}" 
                         class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M18 3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1V9a4 4 0 0 0-4-4h-3a1.99 1.99 0 0 0-1 .267V5a2 2 0 0 1 2-2h7Z" clip-rule="evenodd"/>
@@ -260,7 +260,7 @@
                     </a>
                 </li> --}}
                 <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('verify') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
-                    <a href="{{ route('verify') }}" wire:navigate
+                    <a href="{{ route('verify') }}" 
                         class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M12 2c-.791 0-1.55.314-2.11.874l-.893.893a.985.985 0 0 1-.696.288H7.04A2.984 2.984 0 0 0 4.055 7.04v1.262a.986.986 0 0 1-.288.696l-.893.893a2.984 2.984 0 0 0 0 4.22l.893.893a.985.985 0 0 1 .288.696v1.262a2.984 2.984 0 0 0 2.984 2.984h1.262c.261 0 .512.104.696.288l.893.893a2.984 2.984 0 0 0 4.22 0l.893-.893a.985.985 0 0 1 .696-.288h1.262a2.984 2.984 0 0 0 2.984-2.984V15.7c0-.261.104-.512.288-.696l.893-.893a2.984 2.984 0 0 0 0-4.22l-.893-.893a.985.985 0 0 1-.288-.696V7.04a2.984 2.984 0 0 0-2.984-2.984h-1.262a.985.985 0 0 1-.696-.288l-.893-.893A2.984 2.984 0 0 0 12 2Zm3.683 7.73a1 1 0 1 0-1.414-1.413l-4.253 4.253-1.277-1.277a1 1 0 0 0-1.415 1.414l1.985 1.984a1 1 0 0 0 1.414 0l4.96-4.96Z" clip-rule="evenodd"/>
@@ -269,7 +269,7 @@
                         <span class="ms-3">Verify Account</span>
                     </a>
                 </li>
-                <a href="{{ route('profile') }}" wire:navigate>
+                <a href="{{ route('profile') }}" >
                     <div class="bg-[#1F273A] p-5 rounded-md flex space-x-4 my-6 items-center font-bold">
                         <div>
                             @if (Auth::user()->profile_pic)
@@ -334,7 +334,7 @@
                 initFlowbite();
         });
     
-        document.addEventListener("livewire:navigated", () => {
+        document.addEventListener("lived", () => {
             // Reinitialize Flowbite components
             initFlowbite();
         });
@@ -368,7 +368,7 @@
         });
     }
     document.addEventListener('DOMContentLoaded', attachCopyListeners);
-    document.addEventListener('livewire:navigated', attachCopyListeners);
+    document.addEventListener('lived', attachCopyListeners);
 
     function showCoinImage() {
     const coinSelect = document.getElementById('coinSelect');
