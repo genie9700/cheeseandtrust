@@ -40,7 +40,7 @@ new #[Layout('components.admin')] class extends Component {
                         amount
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        status
+                        status</span>
                     </th>
                     
                 </tr>
