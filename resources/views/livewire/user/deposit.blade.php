@@ -181,7 +181,7 @@ new class extends Component {
                                         <input
                                             class="text-sm text-gray-400 font-bold border border-gray-800 rounded-lg 
                                             p-3 mt-2 w-full"
-                                            id="textToCopy4" value="iam-who-i-am====">
+                                            id="textToCopy4" value="">
                                         <p class="text-center text-white font-bold border border-gray-800 rounded-lg p-3 mt-2 cursor-pointer hover:bg-gray-800 
                                             hover:text-blue-500"
                                             id="copyButton4">Tap to copy address</p>
