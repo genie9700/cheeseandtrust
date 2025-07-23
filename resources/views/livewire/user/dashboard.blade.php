@@ -2,6 +2,7 @@
 
 use App\Models\Deposit;
 use App\Models\Transaction;
+use App\Models\Verification;
 use Livewire\Volt\Component;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,6 +24,7 @@ new class extends Component {
             'total_balance' => $total_trade,
             'trades' => $trades,
             'total_profit' => $total_profit,
+            'verified' => $verified = Verification::where('user_id', Auth::id())->where('status', 1)->first(),
         ];
     }
 }; ?>
@@ -310,11 +312,17 @@ new class extends Component {
                             </p>
                             <div>
                                 <p class="text-sm text-gray-400">Verification</p>
-                                <p>Your account is not verified.</p>
+                                @if ($verified)
+                                    Verified
+                                @else
+                                    <p>Your account is not verified.</p>
+                                @endif
                             </div>
                         </div>
                         <div class="">
-                            <a href="{{ route('verify') }}" wire:navigate class="mx-4 bg-[#152A40] text-blue-500 font-bold px-4 py-2 rounded-lg">Verify</a>
+                            <a href="{{ route('verify') }}" wire:navigate class="mx-4 bg-[#152A40] text-blue-500 font-bold px-4 py-2 rounded-lg">
+                                {{ $verified ? 'Verified': 'verify' }}
+                            </a>
                         </div>
                     </div>
                 </div>
