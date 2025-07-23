@@ -200,7 +200,7 @@ new class extends Component {
                 <div class="bg-[#131824] rounded-lg pb-3">
                     <p class="text-gray-400 font-bold text-md bg-[#19202F] rounded-t-lg p-3">Submit Payment</p>
                     <center>
-                        <form wire:submit="save">
+                        <form wire:submit="save" class="p-4">
                             <div class="max-w-80 text-justify py-6">
                                 <p class="text-gray-300 font-bold text-sm mb-6">
                                     To deposit, choose the payment method panel and make the payment to the displayed
