@@ -96,15 +96,14 @@ new class extends Component {
             <div class="">
                 <div class="bg-[#131824] h-72 rounded-lg text-gray-400">
                     <p class="bg-[#19202F] font-bold  p-3 rounded-t-lg">Trades</p>
-                    @if($trades)
-                    @foreach ($trades as $trade)
+                    @forelse ($trades as $trade)
                         <div class="flex space-x-4 py-2 px-4 justify-center">
                             <div class="text-[17px] font-medium text-white">
                                 <span class="text-white">${{ number_format($trade->amount) }}</span> has been
                                 @if ($trade->transaction_type == 'Credit')
                                     <span class="text-green-700">Credited</span>
                                 @elseif($trade->transaction_type == 'Bonus')
-                                <span class="text-blue-700">Bonused</span>
+                                    <span class="text-blue-700">Bonused</span>
                                 @else
                                     <span class="text-red-700">Debited</span>
                                 @endif
@@ -112,12 +111,11 @@ new class extends Component {
                                 @ {{ $trade->created_at }}
                             </div>
                         </div>
-                @endforeach
-                @else
-                    <div class="flex space-x-4 py-2 px-4 justify-center">
+                    @empty
+                        <div class="flex space-x-4 py-2 px-4 justify-center">
                             <p class="text-white font-bold mb-96">You havent placed any trades yet</p>
-                        </div> 
-                @endif
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </div>
