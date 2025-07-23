@@ -50,7 +50,6 @@ new #[Layout('components.layouts.auth')] class extends Component {
         // Redirect the user to the correct dashboard
         $this->redirect(
             url: $redirectPath
-            // navigate: true
         );     
     }
 
