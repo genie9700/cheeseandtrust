@@ -45,6 +45,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     volt::route('admin/deposit', 'admin.deposit.index')->name('admin.deposit.index');
     volt::route('admin/deposits/{deposit}/edit', 'admin.deposit.edit')->name('admin.deposit.edit');
     
+    volt::route('admin/subscription', 'admin.subscription')->name('admin.subscription');
     volt::route('admin/withdraw', 'admin.withdraw')->name('admin.withdraw');
     volt::route('admin/transaction', 'admin.transaction')->name('admin.transaction');
    

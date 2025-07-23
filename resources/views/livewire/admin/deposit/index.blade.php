@@ -10,7 +10,7 @@ new #[Layout('components.admin')] class extends Component {
     {
 
         return [
-            'deposits' => Deposit::where('image_slip', '!=', NULL)->with('user')->latest()->paginate()
+            'deposits' => Deposit::where('payment_slip', '!=', NULL)->with('user')->latest()->paginate()
         ];
     }
 }; ?>
