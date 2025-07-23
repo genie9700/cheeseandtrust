@@ -57,7 +57,7 @@ new class extends Component {
         $user = Auth::user();
 
         $validated = $this->validate([
-            'profile_pic' => ['nullable','image'],
+            'profile_pic' => ['required', 'image'],
         ]);
 
         if ($this->current_image) {
@@ -119,7 +119,7 @@ new class extends Component {
 }; ?>
 
 <div>
-    <div class="p-4">
+    <div class="md:p-4">
     <p class="text-white font-bold text-xl mb-10 p-2">Profile</p>
     <div class="md:grid md:grid-cols-3 md:gap-4 md:mb-0 mb-4">
         <div class="col-span-1">
@@ -160,15 +160,40 @@ new class extends Component {
                 <p class="text-gray-400 font-bold text-md bg-[#19202F] rounded-t-lg p-3">Actions</p>
                 <div class="px-5 py-3">
                     <div class="mt-2">
-                        <form wire:submit="update_profile_pic">
-                            <label for="type" class="mb-2 text-gray-400 inline-block font-bold">Upload Profile Photo</label>
-                            <input accept="image/png, image/jpeg, image/jpg" wire:model="profile_pic" type="file" class="block w-full mb-4 rounded-lg p-3 bg-[#1F273A] text-white border-gray-800 focus:ring-gray-800 focus:border-gray-800" placeholder="upload photo">
-                            @error('profile_pic') <span class="text-red-500 font-bold text-sm mt-1">{{ $message }}</span> @enderror
-                            <button x-data="{ profile_pic: @entangle('profile_pic')}"
-                                    :class="{'bg-gray-700 cursor-not-allowed text-white': !profile_pic, 'bg-blue-500 text-white': profile_pic }"
-                                    :disabled="!profile_pic"
-                                class="bg-blue-500 block text-white font-bold w-full  rounded-lg py-3">Upload</button>
-                        </form>
+                       <div
+                            {{-- This main Alpine component handles the upload progress events --}}
+                            x-data="{ isUploading: false, progress: 0 }"
+                            x-on:livewire-upload-start="isUploading = true"
+                            x-on:livewire-upload-finish="isUploading = false; progress = 0"
+                            x-on:livewire-upload-error="isUploading = false"
+                            x-on:livewire-upload-progress="progress = $event.detail.progress"
+                        >
+                            <form wire:submit="update_profile_pic">
+                                <label for="profile_pic_input" class="mb-2 text-gray-400 inline-block font-bold">Upload Profile Photo</label>
+                                <input id="profile_pic_input" accept="image/png, image/jpeg, image/jpg" wire:model="profile_pic" required type="file" class="block w-full mb-1 rounded-lg p-3 bg-[#1F273A] text-white border-gray-800 focus:ring-gray-800 focus:border-gray-800" placeholder="upload photo">
+
+                                <div x-show="isUploading" class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+                                    <div class="bg-blue-500 h-2.5 rounded-full" :style="`width: ${progress}%`"></div>
+                                </div>
+                                @error('profile_pic') <span class="text-red-500 font-bold text-sm mt-1">{{ $message }}</span> @enderror
+
+                                <button type="submit"
+                                    :disabled="! @entangle('profile_pic')"
+                                    wire:loading.attr="disabled"
+                                    wire:loading.class="!bg-blue-400 cursor-wait"
+                                    :class="{ 'bg-gray-700 cursor-not-allowed': ! @entangle('profile_pic'), 'bg-blue-500 hover:bg-blue-600': @entangle('profile_pic') }"
+                                    class="flex items-center justify-center text-white font-bold w-full rounded-lg py-3 mt-4 transition ease-in-out">
+                                    
+                                    <svg wire:loading wire:target="update_profile_pic" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                            
+                                    <span wire:loading.remove wire:target="update_profile_pic">Upload</span>
+                                    <span wire:loading wire:target="update_profile_pic">Uploading...</span>
+                                    </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

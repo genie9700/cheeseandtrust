@@ -15,16 +15,21 @@ new class extends Component {
 
         $trades = Transaction::where('user_id', Auth::id())->get();
 
+        $total_trade = Transaction::where('user_id', Auth::id())->pluck('amount')->sum();
+
+        $total_profit = $total_trade;
+
         return [
-            'total_balance' => $credit,
+            'total_balance' => $total_trade,
             'trades' => $trades,
+            'total_profit' => $total_profit,
         ];
     }
 }; ?>
 
 <div>
     <div class="text-white">
-    <div class="md:grid md:grid-cols-3 md:gap-2 p-2">
+    <div class="md:grid md:grid-cols-3 p-0 md:gap-6 md:p-6">
         {{-- total balance --}}
         <div class="col-span-2">
             <div class="flex justify-between bg-[#131824] rounded-lg px-4 pt-4 pb-16">
@@ -261,7 +266,7 @@ new class extends Component {
                         </p>
                         <div>
                             <p class="text-sm text-gray-400">Total Profits</p>
-                            <p>$0.00</p>
+                            <p>{{number_format($total_profit, 2)}}</p>
                         </div>
                     </div>
                     <div class="flex bg-[#161C2A] shadow rounded-lg m-2 items-center justify-between">
@@ -273,7 +278,7 @@ new class extends Component {
                             </p>
                             <div>
                                 <p class="text-sm text-gray-400">Total Deposits</p>
-                                <p>$0.00</p>
+                                <p>${{ number_format($total_balance, 2) }}</p>
                             </div>
                         </div>
                         <div class="">

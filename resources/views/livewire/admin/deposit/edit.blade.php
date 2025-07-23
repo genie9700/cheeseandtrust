@@ -61,6 +61,7 @@ new #[Layout('components.admin')] class extends Component {
 
 <div>
     <div>
+        <p class="text-text-[#0891b2] dark:text-white font-semibold text-2xl my-8">{{  $deposit->user->fname. ' ' .$deposit->user->lname }} Deposit</p>
     @if (session('status'))
         <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
             <span class="font-medium"> {{ session('status') }}</span>
@@ -107,9 +108,6 @@ new #[Layout('components.admin')] class extends Component {
                             @else
                                 <span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-yellow-300 border border-yellow-300">Pending</span>
                             @endif
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $deposit->payment_mode }}
                         </td>
                         <td class="px-6 py-4 text-right">
                             @if ($deposit->status == 1)

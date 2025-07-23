@@ -9,7 +9,7 @@ use Livewire\Attributes\Rule;
 
 new #[Layout('components.admin')] class extends Component {
     #[Locked]
-    public $user;
+    public User $user;
 
     #[Rule('required | integer')]
     public $amount = '';
@@ -23,23 +23,23 @@ new #[Layout('components.admin')] class extends Component {
     public $message = '';
 
 
-    public function mount($user)
+    public function mount(User $user)
     {
         $this->user = $user;
 
     }
 
-        public function profit()
+    public function profit()
     {
         $validated = $this->validate();
-        $user = User::findOrFail($this->user);
+        $user = User::findOrFail($this->user->id);
 
-        $credit = Transaction::where('user_id', $this->user)
+        $credit = Transaction::where('user_id', $this->user->id)
                             ->where('transaction_type', 'Credit')
                             ->pluck('amount')
                             ->sum();
 
-        $debit = Transaction::where('user_id', $this->user)
+        $debit = Transaction::where('user_id', $this->user->id)
                             ->where('transaction_type', 'Debit')
                             ->pluck('amount')
                             ->sum();
@@ -82,7 +82,8 @@ new #[Layout('components.admin')] class extends Component {
             'bonus_amount' => 'required|integer',
         ]);
 
-        $user = User::findOrFail($this->user);
+
+        $user = User::findOrFail($this->user->id);
 
         $user->transactions()->create([
             'amount' => $validate['bonus_amount'],
@@ -95,19 +96,19 @@ new #[Layout('components.admin')] class extends Component {
 
     public function with(): array
     {
-        $credit = Transaction::where('user_id', $this->user)
+        $credit = Transaction::where('user_id', $this->user->id)
                             ->where('transaction_type', 'Credit')
                             ->pluck('amount')
                             ->sum();
 
-        $debit = Transaction::where('user_id', $this->user)
+        $debit = Transaction::where('user_id', $this->user->id)
                             ->where('transaction_type', 'Debit')
                             ->pluck('amount')
                             ->sum();
 
         $totalBalance = $credit - $debit;
 
-       $bonus = Transaction::where('user_id', $this->user)
+       $bonus = Transaction::where('user_id', $this->user->id)
                             ->where('transaction_type', 'Bonus')
                             ->pluck('amount')
                             ->sum();
@@ -120,12 +121,13 @@ new #[Layout('components.admin')] class extends Component {
 
 <div>
     <div>
+        <p class="text-text-[#0891b2] dark:text-white font-semibold text-2xl my-8">{{ $user->fname.' '.$user->lname }} Transactions</p>
     <div class="my-6 md:grid md:grid-cols-2 md:gap-4">
-        <div class="shadow-lg rounded border border-gray-300 hover:border-gray-400  p-3 mb-4 md:mb-0">
+        <div class="shadow-lg rounded-lg border border-gray-300 hover:border-gray-400  p-3 mb-4 md:mb-0 dark:bg-gray-900">
             <div class="flex justify-between mx-2">
                 <div>
-                    <p class="mb-4 text-xl font-medium text-gray-800">${{ number_format($totalBalance) }}</p>
-                    <p class="font-bold text-lg text-gray-700">R.O.I</p>
+                    <p class="mb-4 text-xl font-medium text-gray-800 dark:text-white">${{ number_format($totalBalance) }}</p>
+                    <p class="font-bold text-lg text-gray-700 dark:text-gray-400">R.O.I</p>
                 </div>
                 <div class="my-auto">
                     <svg class="w-6 h-6 text-[#0891B2] dark:text-white" aria-hidden="true"
@@ -137,11 +139,11 @@ new #[Layout('components.admin')] class extends Component {
             </div>
         </div>
 
-        <div class="shadow-lg rounded border border-gray-300 hover:border-gray-400  p-3 mb-4 md:mb-0">
+        <div class="shadow-lg rounded-lg border border-gray-300 hover:border-gray-400  p-3 mb-4 md:mb-0 dark:bg-gray-900">
             <div class="flex justify-between mx-2">
                 <div>
-                    <p class="mb-4 text-xl font-medium text-gray-800">${{ number_format($bonus) }}</p>
-                    <p class="font-bold text-lg text-gray-700">Bonus</p>
+                    <p class="mb-4 text-xl font-medium text-gray-800 dark:text-white">${{ number_format($bonus) }}</p>
+                    <p class="font-bold text-lg text-gray-700 dark:text-gray-400">Bonus</p>
                 </div>
                 <div class="my-auto">
                     <svg class="w-6 h-6 text-[#0891B2] dark:text-white" aria-hidden="true"
@@ -159,10 +161,10 @@ new #[Layout('components.admin')] class extends Component {
     {{--  ////////////////////////// Transaction form /////////////////////  --}}
 
     <div>
-        <h2 class="mt-8 font-bold text-gray-800 text-2xl text-center">Transactions</h2>
-        <div class="mt-12 md:flex md:space-x-8">
-            <div class="shadow p-5 mb-8 md:mb-0">
-                <p class="mb-6 font-semibold text-gray-800 text-center text-xl">Daily Profit</p>
+        <h2 class="mt-8 font-bold text-gray-800 text-2xl text-center dark:text-white">Transactions</h2>
+        <div class="mt-12 md:grid md:grid-cols-2 gap-4">
+            <div class="shadow-lg rounded-lg p-5 mb-8 md:mb-0 dark:bg-gray-900">
+                <p class="mb-6 font-semibold text-gray-800 text-center text-xl dark:text-gray-300">Daily Profit</p>
                 @if (session('status'))
                     <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
                         role="alert">
@@ -175,7 +177,7 @@ new #[Layout('components.admin')] class extends Component {
                         <span class="font-medium"> {{ session('low-status') }}</span>
                     </div>
                 @endif
-                <form wire:submit="profit" class="md:w-[30rem]">
+                <form wire:submit="profit" class="">
                     <div class="mb-6">
                         <label for="amount"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount</label>
@@ -223,15 +225,15 @@ new #[Layout('components.admin')] class extends Component {
                 </form>
             </div>
 
-            <div class="shadow p-5">
-                <p class="mb-6 font-semibold text-gray-800 text-center text-xl">Bonus</p>
+            <div class="shadow-lg rounded-lg dark:bg-gray-900 p-5">
+                <p class="mb-6 font-semibold text-gray-800 text-center text-xl dark:text-gray-300">Bonus</p>
                 @if (session('bonus-status'))
                     <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
                         role="alert">
                         <span class="font-medium"> {{ session('bonus-status') }}</span>
                     </div>
                 @endif
-                <form wire:submit="bonus" class="md:w-[25rem]">
+                <form wire:submit="bonus" class="">
                     <div class="mb-6">
                         <label for="amount"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount</label>

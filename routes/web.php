@@ -15,9 +15,9 @@ use App\Http\Controllers\LogoutController;
 //     ->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-    Route::redirect('settings', 'settings/profile');
+    // Route::redirect('settings', 'settings/profile');
 
-   Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
     
     volt::route('dashboard', 'user.dashboard')->name('dashboard');
     volt::route('deposit', 'user.deposit')->name('deposit');

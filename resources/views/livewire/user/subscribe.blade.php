@@ -84,7 +84,7 @@ new class extends Component {
 }; ?>
 
 <div>
-    <div class="p-4">
+    <div class="md:p-4">
     <div class="mb-24">
         <p class="text-white font-bold text-xl mb-10">Subscribe</p>
         <p class="text-gray-400 font-bold text-md mb-10">Plans</p>
@@ -96,19 +96,19 @@ new class extends Component {
                     <p class="text-gray-400 font-bold text-md">Minimum</p>
                     <p class="text-white text-3xl font-bold">$10,000</p>
                     <div class="mt-8">
-                        <p class="text-white font-bold">Details</p>
-                        <div class="flex space-x-3 font-bold p-1">
-                            <div class="border border-gray-800 rounded-lg px-4 py-2">
+                        <p class="text-white font-bold mb-2">Details</p>
+                        <div class="flex justify-between font-bold">
+                            <div class="border border-gray-800 rounded-lg px-2 py-2">
                                 <p class="text-blue-600">Duration</p>
                                 <p class="text-white">3 DAYS</p>
                             </div>
                             <div class="border border-gray-800 rounded-lg px-4 py-2">
-                                <p class="text-blue-600">ROI</p>
-                                <p class="text-white">200%</p>
+                                <p class="text-blue-600">MAX</p>
+                                <p class="text-white">{{ number_format(19500, 2) }}</p>
                             </div>
                             <div class="border border-gray-800 rounded-lg px-4 py-2">
-                                <p class="text-blue-600">MAXIMUM</p>
-                                <p class="text-white">{{ number_format(19500, 2) }}</p>
+                                <p class="text-blue-600">ROI</p>
+                                <p class="text-white">200%</p>
                             </div>
                             
                         </div>

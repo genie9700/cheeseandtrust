@@ -127,10 +127,21 @@
                                         class="block px-4 py-2 text-md font-bold text-white hover:bg-gray-800 hover:rounded-md dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                         role="menuitem">Profile</a>
                                 </li>
-                                <li class="mt-2">
-                                    <a href="{{ route('logout') }}"
-                                        class="block px-4 py-2 text-md font-bold text-white border border-blue-400 rounded-md dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        role="menuitem">Sign out</a>
+                                <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+
+                                        <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); this.closest('form').submit();"
+                                        class="flex items-center p-3 text-white rounded-lg transition ease-in-out hover:bg-gray-700 hover:translate-x-2 group cursor-pointer">
+
+                                            <svg class="flex-shrink-0 w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"/>
+                                            </svg>
+
+                                            <span class="ms-3">Logout</span>
+                                        </a>
+                                    </form>
                                 </li>
                             </ul>
                         </div>
@@ -237,7 +248,7 @@
                         <span class="ms-3">Subscription</span>
                     </a>
                 </li>
-                <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('copy') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
+                {{-- <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('copy') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
                     <a href="{{ route('copy') }}" wire:navigate
                         class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -247,7 +258,7 @@
                                                                 
                         <span class="ms-3">Copy Experts</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('verify') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
                     <a href="{{ route('verify') }}" wire:navigate
                         class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
@@ -290,14 +301,21 @@
                         </div>
                     </div>
                 </a>
-                <li class="p-1 hover:rounded-md hover:translate-x-4 transition ease-in-out {{ Request::is('') ? 'bg-blue-500 rounded-md hover:translate-x-4 transition ease-in-out' : '' }}">
-                    <a href="{{ route('logout') }}" wire:navigate
-                        class="flex items-center p-2 text-white rounded-lg dark:text-white  dark:hover:bg-gray-700 group">
-                        <svg class="flex-shrink-0 w-5 h-5 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"/>
-                        </svg>                                                         
-                        <span class="ms-3">Logout</span>
-                    </a>
+                <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); this.closest('form').submit();"
+                        class="flex items-center p-3 text-white rounded-lg transition ease-in-out hover:bg-gray-700 hover:translate-x-2 group cursor-pointer">
+
+                            <svg class="flex-shrink-0 w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"/>
+                            </svg>
+
+                            <span class="ms-3">Logout</span>
+                        </a>
+                    </form>
                 </li>
             </ul>
             

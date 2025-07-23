@@ -18,7 +18,7 @@ new class extends Component {
 }; ?>
 
 <div>
-    <div class="p-4">
+    <div class="md:p-4">
         <p class="text-white font-bold text-xl mb-10 p-2">Trades</p>
         <div class="bg-[#131824] h-72 rounded-lg text-gray-400">
             <p class="bg-[#19202F] font-bold  p-3 rounded-t-lg">Trades</p>

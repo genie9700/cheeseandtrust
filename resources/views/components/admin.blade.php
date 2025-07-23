@@ -6,18 +6,20 @@
     <title>{{ config('app.name') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+     <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .active{
             background: rgb(172, 171, 171);
         }
     </style>
 </head>
-<body>
+<body class="font-sans antialiased" style="font-family: 'Inter', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;">
     <div>
        @include('components.layouts.admin.header')
         @include('components.layouts.admin.sidebar')
-        <main>
-            <div class="p-4 pt-14 sm:ml-64 mt-10">
+        <main class="">
+            <div class="p-4 pt-14 sm:ml-64 mt-10 min-h-screen dark:bg-gray-800">
                 {{ $slot }}
             
             </div>

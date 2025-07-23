@@ -124,12 +124,12 @@ new class extends Component {
 }; ?>
 
 <div>
-    <div class="p-4">
+    <div class="md:p-4">
     <p class="text-white font-bold text-xl mb-10 p-2">Withdrawal</p>
     <div class="col-span-2 md:mt-0 mt-8">
         <div class="bg-[#131824] rounded-lg">
             <p class="text-gray-400 font-bold text-md bg-[#19202F] rounded-t-lg p-3">Withdraw</p>
-            <p class="text-white font-bold  text-center mb-5">
+            <p class="text-white font-bold  text-center my-5">
                 To make a withdrawal, select your balance,
                 amount and verify the address you wish for
                 payment to be made into.

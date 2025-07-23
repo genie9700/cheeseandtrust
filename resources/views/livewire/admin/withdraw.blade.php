@@ -17,6 +17,8 @@ new #[Layout('components.admin')] class extends Component {
 }; ?>
 
 <div>
+    <p class="text-text-[#0891b2] dark:text-white font-semibold text-2xl my-8">Withdrawals</p>
+
     <div>
     @if (session('status'))
         <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
@@ -113,7 +115,7 @@ new #[Layout('components.admin')] class extends Component {
                     </tr>
                 @empty
                 <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <td colspan="10" class="text-center">
+                    <td colspan="11" class="text-center">
                        <p class="my-5 font-semibold text-xl text-gray-800">No Records Found</p>
                         <p class="mb-5 font-medium text-gray-500 text-md">Create a New Transaction </p>
                     </td>

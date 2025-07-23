@@ -63,7 +63,7 @@ new class extends Component {
 }; ?>
 
 <div>
-    <div class="p-4">
+    <div class="md:p-4">
     {{-- deposit --}}
     <div class="mb-24">
         <p class="text-white font-bold text-xl mb-10">Deposit</p>
@@ -200,58 +200,83 @@ new class extends Component {
                 <div class="bg-[#131824] rounded-lg pb-3">
                     <p class="text-gray-400 font-bold text-md bg-[#19202F] rounded-t-lg p-3">Submit Payment</p>
                     <center>
-                        <form wire:submit="save" class="p-4">
-                            <div class="max-w-80 text-justify py-6">
-                                <p class="text-gray-300 font-bold text-sm mb-6">
-                                    To deposit, choose the payment method panel and make the payment to the displayed
-                                    address.
-                                    After payment has been made, come back to fill this form.
-                                </p>
-                                <div>
+                        <div
+                            x-data="{ isUploading: false, progress: 0 }"
+                            x-on:livewire-upload-start="isUploading = true"
+                            x-on:livewire-upload-finish="isUploading = false; progress = 0"
+                            x-on:livewire-upload-error="isUploading = false"
+                            x-on:livewire-upload-progress="progress = $event.detail.progress"
+                        >
+                            <form wire:submit="save" class="p-4">
+                                <div class="max-w-80 text-justify py-6">
+                                    <p class="text-gray-300 font-bold text-sm mb-6">
+                                        To deposit, choose the payment method panel and make the payment to the displayed
+                                        address.
+                                        After payment has been made, come back to fill this form.
+                                    </p>
                                     <div>
-                                        <label for="coinSelect" class="text-gray-400 font-bold block mb-2">Asset</label>
-                                        <select wire:model="asset" id="coinSelect" required
-                                            class="w-full bg-[#1F273A] p-4 text-white rounded-lg border-gray-800 focus:ring-gray-800 focus:border-gray-800"
-                                            onchange="showCoinImage()">
-                                            <option value="">--Choose a coin--</option>
-                                            <option value="BTC">BTC</option>
-                                            <option value="ETH">ETH</option>
-                                            <option value="DOGE">DOGE</option>
-                                            <option value="BCH">BCH</option>
-                                        </select>
+                                        <div>
+                                            <label for="coinSelect" class="text-gray-400 font-bold block mb-2">Asset</label>
+                                            <select wire:model="asset" id="coinSelect" required
+                                                class="w-full bg-[#1F273A] p-4 text-white rounded-lg border-gray-800 focus:ring-gray-800 focus:border-gray-800"
+                                                onchange="showCoinImage()">
+                                                <option value="">--Choose a coin--</option>
+                                                <option value="BTC">BTC</option>
+                                                <option value="ETH">ETH</option>
+                                                <option value="DOGE">DOGE</option>
+                                                <option value="BCH">BCH</option>
+                                            </select>
+        
+                                            <div class="relative mt-6">
+                                                <label for="coinSelect"
+                                                    class="text-gray-400 font-bold block mb-2">Amount</label>
+                                                <input wire:model="amount" type="number"
+                                                    class="w-full align-middle block p-4 font-bold bg-[#131824] text-white rounded-lg border-gray-700 focus:ring-gray-800 focus:border-gray-800"
+                                                    id="coinInput" placeholder="1000">
+                                                    <div >
+                                                        <img id="coinImage" width="30" height="10"
+                                                            class="rounded-full absolute bottom-4 right-2" src=""
+                                                            alt="Coin Image" style="display: none;"> 
     
-                                        <div class="relative mt-6">
-                                            <label for="coinSelect"
-                                                class="text-gray-400 font-bold block mb-2">Amount</label>
-                                            <input wire:model="amount" type="number"
-                                                class="w-full align-middle block p-4 font-bold bg-[#131824] text-white rounded-lg border-gray-700 focus:ring-gray-800 focus:border-gray-800"
-                                                id="coinInput" placeholder="1000">
-                                                <div >
-                                                    <img id="coinImage" width="30" height="10"
-                                                        class="rounded-full absolute bottom-4 right-2" src=""
-                                                        alt="Coin Image" style="display: none;"> 
-
+                                                    </div>
+                                                @error('amount') <span class="text-red-500">{{ $message }}</span> @enderror 
+                                            </div>
+        
+                                            <div class="my-10">
+                                                <label for="proofInput" class="text-gray-400 font-bold block mb-2">Payment
+                                                    Proof</label>
+                                                <input accept="image/png, image/jpeg, image/jpg" wire:model="payment_slip" type="file" required
+                                                    class="w-full align-middle block p-4 font-bold bg-[#131824] text-white rounded-lg border-gray-700 focus:ring-gray-800 focus:border-gray-800"
+                                                    id="proofInput">
+                                                
+                                                <div x-show="isUploading" class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+                                                    <div class="bg-blue-500 h-2.5 rounded-full" :style="`width: ${progress}%`"></div>
                                                 </div>
-                                            @error('amount') <span class="text-red-500">{{ $message }}</span> @enderror 
-                                        </div>
-    
-                                        <div class="my-10">
-                                            <label for="coinSelect" class="text-gray-400 font-bold block mb-2">Payment
-                                                Proof</label>
-                                            <input accept="image/png, image/jpeg, image/jpg" wire:model="payment_slip" type="file"
-                                                class="w-full align-middle block p-4 font-bold bg-[#131824] text-white rounded-lg border-gray-700 focus:ring-gray-800 focus:border-gray-800"
-                                                id="coinInput" placeholder="1000">
-                                            @error('payment_slip') <span class="text-red-500">{{ $message }}</span> @enderror
-                                        </div>
+                                                @error('payment_slip') <span class="text-red-500 mt-1 block">{{ $message }}</span> @enderror
+                                            </div>
+                                            
+                                            <button type="submit"
+                                                {{-- The button is now disabled if any of the three required fields are missing --}}
+                                                :disabled="! @entangle('asset') || ! @entangle('amount') || ! @entangle('payment_slip')"
+                                                wire:loading.attr="disabled"
+                                                wire:loading.class="!bg-blue-400 cursor-wait"
+                                                :class="{ 'bg-gray-700 cursor-not-allowed': ! @entangle('asset') || ! @entangle('amount') || ! @entangle('payment_slip'), 'bg-blue-500 hover:bg-blue-600': @entangle('asset') && @entangle('amount') && @entangle('payment_slip') }"
+                                                class="flex items-center justify-center text-white font-bold w-full rounded-lg py-3 transition ease-in-out">
+                                                
+                                                {{-- Make sure the wire:target matches your form's submit action ('save') --}}
+                                                <svg wire:loading wire:target="save" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                                </svg>
                                         
-                                        <button x-data="{ amount: @entangle('amount'), payment_slip: @entangle('payment_slip')}"
-                                                :class="{'bg-gray-700 cursor-not-allowed text-white': !amount || !payment_slip, 'bg-blue-500 text-white': amount && payment_slip}"
-                                                :disabled="!amount || !payment_slip"
-                                            class="bg-blue-500 text-white font-bold w-full rounded-lg py-3">Deposit</button>
+                                                <span wire:loading.remove wire:target="save">Deposit</span>
+                                                <span wire:loading wire:target="save">Processing...</span>
+                                                </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </center>
 
                 </div>
