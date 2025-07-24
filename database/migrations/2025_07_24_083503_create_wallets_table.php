@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('wallets', function (Blueprint $table) {
             $table->id();
+            $table->string('name'); // e.g., "Bitcoin"
+            $table->string('icon_url')->nullable(); // URL for the coin image
+            $table->text('wallet_address');
+            $table->boolean('is_active')->default(true); // To easily enable/disable methods
             $table->timestamps();
         });
     }
