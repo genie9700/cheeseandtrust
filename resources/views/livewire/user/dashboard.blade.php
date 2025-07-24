@@ -333,7 +333,7 @@ new class extends Component {
     {{-- footer --}}
     <footer class="mx-2 mt-10">
         <div class="bg-[#131824] text-gray-300 p-7 rounded-lg">
-            <p>{{ config('app.name') }} Ltd 2018</p>
+            <p>{{ config('app.name') }} Ltd 2025</p>
         </div>
     </footer>
 
