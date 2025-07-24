@@ -44,12 +44,30 @@
                 <span class="flex-1 ml-3 whitespace-nowrap {{ (request()->is('admin/verification*')) ? 'text-[#0891B2]' : '' }}">Verifications</span>
              </a>
          </li>
-          <li>
+         <li>
              <a href="{{ route('admin.withdraw') }}" wire:navigate class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ (request()->is('admin/withdraw')) ? 'text-white bg-gray-100 dark:bg-gray-700' : '' }}">
                 <svg class="w-5 h-5 text-gray-800 dark:text-white {{ (request()->is('admin/withdraw')) ? 'text-[#0891b2]' : '' }}" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M1 10c1.5 1.5 5.25 3 9 3s7.5-1.5 9-3m-9-1h.01M2 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1ZM14 5V3a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2h8Z"/>
                   </svg>
                 <span class="flex-1 ml-3 whitespace-nowrap {{ (request()->is('admin/withdraw*')) ? 'text-[#0891B2]' : '' }}">Withdrawal</span>
+             </a>
+          </li>
+         <li>
+             <a href="{{ route('admin.wallet') }}" wire:navigate class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ (request()->is('admin/wallet')) ? 'text-white bg-gray-100 dark:bg-gray-700' : '' }}">
+               <svg class="w-5 h-5 text-gray-800 dark:text-white {{ (request()->is('admin/wallet')) ? 'text-[#0891b2]' : '' }}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 0 0-2.25-2.25H15a3 3 0 1 1-6 0H5.25A2.25 2.25 0 0 0 3 12m18 0v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 9m18 0V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v3" />
+               </svg>
+
+               <span class="flex-1 ml-3 whitespace-nowrap {{ (request()->is('admin/wallet*')) ? 'text-[#0891B2]' : '' }}">Wallets</span>
+             </a>
+          </li>
+         <li>
+             <a href="{{ route('admin.setting') }}" wire:navigate class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ (request()->is('admin/setting')) ? 'text-white bg-gray-100 dark:bg-gray-700' : '' }}">
+               <svg class="w-5 h-5 text-gray-800 dark:text-white {{ (request()->is('admin/setting')) ? 'text-[#0891b2]' : '' }}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.964m11.49-9.642 1.149-.964M7.501 19.795l.75-1.3m7.5-12.99.75-1.3m-6.063 16.658.26-1.477m2.605-14.772.26-1.477m0 17.726-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205 12 12m6.894 5.785-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
+               </svg>
+
+                <span class="flex-1 ml-3 whitespace-nowrap {{ (request()->is('admin/setting*')) ? 'text-[#0891B2]' : '' }}">Settings</span>
              </a>
           </li>
 
