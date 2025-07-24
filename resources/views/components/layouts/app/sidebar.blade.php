@@ -42,7 +42,8 @@
                     </button>
                     <a href="{{ route('dashboard') }}" class="flex ms-2 md:me-24">
                          <div>
-                            <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"> {{ config('app.name') }}</span>
+                            <img width="110px" src="{{ asset('logo/chase2.png') }}" alt="">
+                            {{-- <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"> {{ config('app.name') }}</span> --}}
                          </div>
                         <span
                             class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"></span>

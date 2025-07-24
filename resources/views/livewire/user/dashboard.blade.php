@@ -21,7 +21,7 @@ new class extends Component {
         $total_profit = $total_trade;
 
         return [
-            'total_balance' => $total_trade,
+            'total_balance' => $total_trade, 
             'trades' => $trades,
             'total_profit' => $total_profit,
             'verified' => $verified = Verification::where('user_id', Auth::id())->where('status', 1)->first(),
